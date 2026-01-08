@@ -1,48 +1,50 @@
-<h1 align="center">
-  FileBrowser一键安装脚本
-</h1>
-FileBrowser是一个开源的文件管理系统，主要用于提供一个简单、直观的 Web 界面，方便用户管理文件。它允许用户通过 Web 浏览器访问、上传、下载、编辑文件，还提供了文件共享、权限管理等功能。
+# FileBrowser One-Click Installation Script
 
-<hr>
+FileBrowser is an open-source file management system that provides a simple and intuitive web interface for managing files. It allows users to access, upload, download, and edit files through a web browser, and also supports file sharing and permission management.
 
-### 安装
-* 第1个参数port设置为一个端口号，记得NGINX中配置为相应的端口号
-* 第2个参数username设置为你想注册的用户名，只能是纯英文或英文加数字
+---
+
+## Installation
+
+- The **first parameter (`port`)** sets the service port. Make sure the same port is configured in NGINX.
+- The **second parameter (`username`)** sets the username you want to register.  
+  It must contain **only English letters** or **letters + numbers**.
+
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/FileBrowser/main/bash/install_filebrowser.sh) 8088 username
-```
 
-### 卸载
+## Uninstallation
+
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/FileBrowser/main/bash/uninstall_filebrowser.sh)
 ```
 
-### NGINX配置
-```bash
-location ^~ / {
-        proxy_pass  http://127.0.0.1:8088/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        client_max_body_size 2G; #设置单个上传文件最大限制
-        proxy_buffers 4 8k; #4个8KB的缓冲区
-        proxy_busy_buffers_size 8k; #允许最多使用8KB的内存
-        sendfile on; #启用 sendfile 提高文件传输性能
-        tcp_nopush on; #优化大文件传输
-    }
-```
-### 服务管理命令
-| 操作         | 命令                                                        |
-|--------------|-------------------------------------------------------------|
-| 启动服务     | ```sudo systemctl start filebrowser```                      |
-| 停止服务     | ```sudo systemctl stop filebrowser```                       |
-| 重启服务     | ```sudo systemctl restart filebrowser```                    |
-| 查看状态     | ```sudo systemctl status filebrowser```                     |
-| 查看日志     | ```sudo journalctl -u filebrowser -f```                     |
-| 开机自启动   | ```sudo systemctl enable filebrowser```                     |
-| 关闭开机启动 | ```sudo systemctl disable filebrowser```                    |
+## NGINX Configuration
 
-### 环境
-* Debian12
-* NGINX
-* SSL
+```nginx
+location ^~ / {
+    proxy_pass http://127.0.0.1:8088/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    client_max_body_size 2G;      # Maximum size of a single uploaded file
+    proxy_buffers 4 8k;           # 4 buffers of 8KB
+    proxy_busy_buffers_size 8k;   # Allow up to 8KB memory usage
+
+    sendfile on;                  # Improve file transfer performance
+    tcp_nopush on;                # Optimize large file transfers
+}
+```
+
+## Service Management Commands
+
+| Action            | Command                                    |
+|------------------|---------------------------------------------|
+| Start service    | `sudo systemctl start filebrowser`          |
+| Stop service     | `sudo systemctl stop filebrowser`           |
+| Restart service  | `sudo systemctl restart filebrowser`        |
+| Check status     | `sudo systemctl status filebrowser`         |
+| View logs        | `sudo journalctl -u filebrowser -f`         |
+| Enable on boot   | `sudo systemctl enable filebrowser`         |
+| Disable on boot  | `sudo systemctl disable filebrowser`        |
