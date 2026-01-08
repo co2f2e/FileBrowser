@@ -12,6 +12,7 @@ FileBrowser is an open-source file management system that provides a simple and 
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/FileBrowser/main/bash/install_filebrowser.sh) 8088 username
+```
 
 ## Uninstallation
 
