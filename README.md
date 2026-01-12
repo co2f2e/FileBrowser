@@ -1,6 +1,6 @@
-# FileBrowser One-Click Installation Script
+# filebrowser One-Click Installation Script
 
-FileBrowser is an open-source file management system that provides a simple and intuitive web interface for managing files. It allows users to access, upload, download, and edit files through a web browser, and also supports file sharing and permission management.
+filebrowser is an open-source file management system that provides a simple and intuitive web interface for managing files. It allows users to access, upload, download, and edit files through a web browser, and also supports file sharing and permission management.
 
 ---
 
@@ -11,13 +11,13 @@ FileBrowser is an open-source file management system that provides a simple and 
   It must contain **only English letters** or **letters + numbers**.
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/FileBrowser/main/bash/install_filebrowser.sh) 8088 username
+bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/filebrowser/main/bash/install_filebrowser.sh) 8088 username
 ```
 
 ## Uninstallation
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/FileBrowser/main/bash/uninstall_filebrowser.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/filebrowser/main/bash/uninstall_filebrowser.sh)
 ```
 
 ## NGINX Configuration
