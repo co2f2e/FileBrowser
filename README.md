@@ -11,13 +11,13 @@ filebrowser is an open-source file management system that provides a simple and 
   It must contain **only English letters** or **letters + numbers**.
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/filebrowser/main/bash/install_filebrowser.sh) 8088 username
+bash <(curl -Ls https://raw.githubusercontent.com/Meokj/filebrowser/main/bash/install_filebrowser.sh) 8088 username
 ```
 
 ## Uninstallation
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/filebrowser/main/bash/uninstall_filebrowser.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/Meokj/filebrowser/main/bash/uninstall_filebrowser.sh)
 ```
 
 ## NGINX Configuration
